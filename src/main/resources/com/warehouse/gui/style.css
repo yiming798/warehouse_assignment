@@ -1,0 +1,263 @@
+.root {
+    -fx-font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+    -fx-font-size: 13px;
+    -fx-background-color: #f4f7fb;
+}
+
+.top-shell {
+    -fx-background-color: linear-gradient(to right, #ffffff, #f7f9fc);
+    -fx-border-color: transparent transparent #d9e2ef transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.header-bar {
+    -fx-background-color: transparent;
+}
+
+.page-title {
+    -fx-font-size: 28px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #1f2937;
+}
+
+.page-subtitle {
+    -fx-text-fill: #6b7280;
+}
+
+.capacity-card,
+.card-panel,
+.metric-card,
+.drawer-panel {
+    -fx-background-color: white;
+    -fx-background-radius: 14;
+    -fx-border-radius: 14;
+    -fx-border-color: #dbe4f0;
+    -fx-border-width: 1;
+}
+
+.capacity-card {
+    -fx-padding: 12 14 12 14;
+}
+
+.capacity-icon {
+    -fx-font-size: 18px;
+}
+
+.capacity-text {
+    -fx-font-size: 15px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #1f2937;
+}
+
+.toolbar {
+    -fx-background-color: transparent;
+}
+
+.toolbar-label,
+.section-title,
+.metric-label {
+    -fx-font-weight: 700;
+    -fx-text-fill: #334155;
+}
+
+.section-title {
+    -fx-font-size: 16px;
+}
+
+.metric-card {
+    -fx-padding: 12;
+    -fx-spacing: 4;
+}
+
+.metric-value {
+    -fx-font-size: 18px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #1d4ed8;
+}
+
+.metric-value.warning {
+    -fx-text-fill: #dc2626;
+}
+
+.card-panel,
+.drawer-panel {
+    -fx-padding: 14;
+}
+
+.sidebar {
+    -fx-background-color: transparent;
+}
+
+.sidebar-scroll {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.sidebar-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+.dashboard-titled-pane {
+    -fx-background-color: transparent;
+}
+
+.dashboard-titled-pane > .title {
+    -fx-background-color: #eff6ff;
+    -fx-background-radius: 12 12 0 0;
+    -fx-border-radius: 12 12 0 0;
+}
+
+.dashboard-titled-pane > .content {
+    -fx-background-color: transparent;
+}
+
+.dashboard-titled-pane .title .text {
+    -fx-font-weight: 700;
+    -fx-text-fill: #1f2937;
+}
+
+.sidebar-sub-pane {
+    -fx-background-color: transparent;
+}
+
+.sidebar-sub-pane > .title {
+    -fx-background-color: #f8fafc;
+    -fx-background-radius: 10 10 0 0;
+    -fx-border-radius: 10 10 0 0;
+}
+
+.sidebar-sub-pane > .content {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.warning {
+    -fx-text-fill: #dc2626;
+}
+
+.warehouse-table {
+    -fx-background-color: white;
+    -fx-border-color: #dbe4f0;
+    -fx-border-width: 1;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: linear-gradient(to right, #eff6ff, #dbeafe);
+}
+
+.table-view .column-header,
+.table-view .filler {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header .label {
+    -fx-font-weight: 700;
+    -fx-text-fill: #1f2937;
+}
+
+.table-row-cell:filled:selected,
+.table-row-cell:filled:selected:hover {
+    -fx-background-color: #bfdbfe;
+}
+
+.button {
+    -fx-cursor: hand;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 7 14 7 14;
+    -fx-background-color: #e5e7eb;
+    -fx-text-fill: #111827;
+}
+
+.button:hover {
+    -fx-opacity: 0.92;
+}
+
+.action-button {
+    /* Softer unified look for action buttons (Remove / Use / Eat / Drink) */
+    -fx-background-color: linear-gradient(to bottom, #f0f7ff, #e8f3ff);
+    -fx-text-fill: #0f172a; /* dark but softer than pure blue */
+    -fx-border-color: #dbeafe;
+    -fx-border-width: 1;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 8 12 8 12;
+    -fx-font-weight: 600;
+}
+
+.action-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #e8f3ff, #dfeefe);
+}
+
+.accent-button {
+    -fx-background-color: #60a5fa;
+    -fx-text-fill: white;
+}
+
+.save-button {
+    -fx-background-color: #4ade80;
+    -fx-text-fill: #064e3b;
+}
+
+.text-field,
+.combo-box,
+.text-area {
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: #cbd5e1;
+    -fx-background-color: white;
+}
+
+.progress-bar > .track {
+    -fx-background-color: #e5e7eb;
+    -fx-background-radius: 999;
+}
+
+.progress-bar > .bar {
+    -fx-background-radius: 999;
+    -fx-background-color: linear-gradient(to right, #60a5fa, #f59e0b);
+}
+
+.chart {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.legend-food {
+    -fx-fill: #e76f51;
+}
+
+.legend-drink {
+    -fx-fill: #f4a62a;
+}
+
+.legend-gun {
+    -fx-fill: #4caf50;
+}
+
+.legend-bomb {
+    -fx-fill: #3ba2c7;
+}
+
+.legend-toolbox {
+    -fx-fill: #7a56d8;
+}
+
+.chart-title {
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+}
+
+.titled-pane > .title {
+    -fx-background-color: #eff6ff;
+    -fx-background-radius: 10 10 0 0;
+    -fx-border-radius: 10 10 0 0;
+}
+
+.titled-pane > .content {
+    -fx-background-color: white;
+    -fx-background-radius: 0 0 10 10;
+    -fx-border-color: #dbe4f0;
+    -fx-border-width: 0 1 1 1;
+}
+

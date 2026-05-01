@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.warehouse.gui.controller.MainController">
+    <top>
+        <VBox spacing="12" styleClass="top-shell">
+            <padding>
+                <Insets bottom="16" left="16" right="16" top="16" />
+            </padding>
+
+            <HBox alignment="CENTER_LEFT" spacing="14" styleClass="header-bar">
+                <VBox spacing="4" HBox.hgrow="ALWAYS">
+                    <Label styleClass="page-title" text="Warehouse Management System" />
+                    <Label styleClass="page-subtitle" text="Dashboard view for items, actions, sorting and analytics" />
+                </VBox>
+
+                <VBox alignment="CENTER_RIGHT" spacing="6" styleClass="capacity-card">
+                    <HBox alignment="CENTER_RIGHT" spacing="10">
+                        <Label styleClass="capacity-icon" text="⚙" />
+                        <Label fx:id="capacityLabel" styleClass="capacity-text" text="Capacity: 0/10" />
+                    </HBox>
+                    <ProgressBar fx:id="capacityBar" prefWidth="180" progress="0.0" />
+                </VBox>
+            </HBox>
+
+            <HBox alignment="CENTER_LEFT" spacing="10" styleClass="toolbar">
+                <Button onAction="#onSaveClicked" styleClass="save-button" text="Save Data" />
+                <Button onAction="#onLoadClicked" styleClass="save-button" text="Load Data" />
+
+                <Region HBox.hgrow="ALWAYS" />
+
+                <Label styleClass="toolbar-label" text="Search:" />
+                <TextField fx:id="searchField" prefWidth="170" promptText="Search by name..." />
+                <Button onAction="#onSearchClicked" text="Find" />
+                <Button onAction="#onResetFilterClicked" text="Reset" />
+
+                <Separator orientation="VERTICAL" prefHeight="28" />
+
+                <Label styleClass="toolbar-label" text="Sort:" />
+                <ComboBox fx:id="sortFieldCombo" prefWidth="110" />
+                <ComboBox fx:id="sortOrderCombo" prefWidth="120" />
+                <Button onAction="#onSortClicked" text="Apply Sort" />
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <TableView fx:id="table" styleClass="warehouse-table">
+            <columns>
+                <TableColumn fx:id="colType" prefWidth="90" text="Type" />
+                <TableColumn fx:id="colName" prefWidth="140" text="Name" />
+                <TableColumn fx:id="colWeight" text="Weight" />
+                <TableColumn fx:id="colExpiration" prefWidth="120" text="Expiration Date" />
+                <TableColumn fx:id="colDurability" prefWidth="90" text="Durability(%)" />
+                <TableColumn fx:id="colDurabilityBar" prefWidth="140" text="Durability Bar" />
+                <TableColumn fx:id="colBullets" prefWidth="75" text="Bullets" />
+                <TableColumn fx:id="colStatus" prefWidth="100" text="Status" />
+            </columns>
+        </TableView>
+    </center>
+
+    <right>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" prefWidth="620" styleClass="sidebar-scroll">
+            <content>
+                <VBox spacing="14" styleClass="sidebar">
+                    <padding>
+                        <Insets bottom="16" left="16" right="16" top="16" />
+                    </padding>
+
+                    <TitledPane expanded="true" styleClass="dashboard-titled-pane" text="Control Panel">
+                        <content>
+                            <Accordion VBox.vgrow="ALWAYS">
+                                <panes>
+                                <TitledPane expanded="true" styleClass="sidebar-sub-pane" text="Add Item">
+                                    <content>
+                                        <VBox spacing="10" styleClass="card-panel">
+                                            <GridPane hgap="10" vgap="10">
+                                                <columnConstraints>
+                                                    <ColumnConstraints minWidth="80" />
+                                                    <ColumnConstraints hgrow="ALWAYS" />
+                                                </columnConstraints>
+
+                                                <Label text="Type:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                                <ComboBox fx:id="typeCombo" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                                                <Label text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                                <TextField fx:id="nameField" promptText="name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                                                <Label text="Weight:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                                <TextField fx:id="weightField" promptText="weight" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                                                <Label text="Shelf Days:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                                                <TextField fx:id="shelfDaysField" promptText="Food/Drink" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                                                <Label text="Bullets:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                                                <TextField fx:id="bulletsField" promptText="Gun only" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                       <rowConstraints>
+                                          <RowConstraints />
+                                          <RowConstraints />
+                                          <RowConstraints />
+                                          <RowConstraints />
+                                          <RowConstraints />
+                                       </rowConstraints>
+                                            </GridPane>
+                                            <Button maxWidth="Infinity" onAction="#onAddClicked" text="Add Item" />
+                                        </VBox>
+                                    </content>
+                                </TitledPane>
+
+                                <TitledPane expanded="false" styleClass="sidebar-sub-pane" text="Remove / Use / Consume">
+                                    <content>
+                                        <VBox spacing="10" styleClass="card-panel">
+                                            <HBox spacing="8">
+                                                <Button maxWidth="Infinity" onAction="#onRemoveClicked" styleClass="action-button" text="Remove" HBox.hgrow="ALWAYS" />
+                                                <Button maxWidth="Infinity" onAction="#onUseClicked" styleClass="action-button" text="Use" HBox.hgrow="ALWAYS" />
+                                            </HBox>
+                                            <HBox spacing="8">
+                                                <Button maxWidth="Infinity" onAction="#onEatClicked" styleClass="action-button" text="Eat" HBox.hgrow="ALWAYS" />
+                                                <Button maxWidth="Infinity" onAction="#onDrinkClicked" styleClass="action-button" text="Drink" HBox.hgrow="ALWAYS" />
+                                            </HBox>
+                                        </VBox>
+                                    </content>
+                                </TitledPane>
+
+                                <TitledPane expanded="false" styleClass="sidebar-sub-pane" text="Repair Mode">
+                                    <content>
+                                        <VBox spacing="10" styleClass="card-panel">
+                                            <GridPane hgap="10" vgap="10">
+                                                <columnConstraints>
+                                                    <ColumnConstraints minWidth="80" />
+                                                    <ColumnConstraints hgrow="ALWAYS" />
+                                                </columnConstraints>
+
+                                                <Label text="Toolbox:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                                <ComboBox fx:id="repairToolboxCombo" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                                                <Label text="Gun:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                                <ComboBox fx:id="repairGunCombo" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                       <rowConstraints>
+                                          <RowConstraints />
+                                          <RowConstraints />
+                                       </rowConstraints>
+                                            </GridPane>
+                                            <Button maxWidth="Infinity" onAction="#onRepairClicked" text="Repair Gun" />
+                                        </VBox>
+                                    </content>
+                                </TitledPane>
+                                </panes>
+                            </Accordion>
+                        </content>
+                    </TitledPane>
+
+                    <TitledPane expanded="true" styleClass="dashboard-titled-pane" text="Activity Log">
+                        <content>
+                            <VBox spacing="10" styleClass="card-panel">
+                                <TextArea fx:id="logArea" editable="false" prefRowCount="10" wrapText="true" VBox.vgrow="ALWAYS" />
+                            </VBox>
+                        </content>
+                    </TitledPane>
+
+                    <TitledPane expanded="true" styleClass="dashboard-titled-pane" text="Analytics Dashboard">
+                        <content>
+                            <VBox spacing="12" styleClass="card-panel">
+                                <GridPane hgap="12" vgap="10">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="ALWAYS" minWidth="0" percentWidth="50" />
+                                        <ColumnConstraints hgrow="ALWAYS" minWidth="0" percentWidth="50" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints vgrow="NEVER" />
+                                        <RowConstraints vgrow="NEVER" />
+                                        <RowConstraints vgrow="NEVER" />
+                                        <RowConstraints vgrow="NEVER" />
+                                    </rowConstraints>
+
+                                    <VBox styleClass="metric-card" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                        <Label styleClass="metric-label" text="Total Items" />
+                                        <Label fx:id="totalItemsLabel" styleClass="metric-value" text="0" />
+                                    </VBox>
+                                    <VBox styleClass="metric-card" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                        <Label styleClass="metric-label" text="Total Weight" />
+                                        <Label fx:id="totalWeightLabel" styleClass="metric-value" text="0.00 kg" />
+                                    </VBox>
+
+                                    <VBox styleClass="metric-card" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                        <Label styleClass="metric-label" text="Expired Items" />
+                                        <Label fx:id="expiredItemsLabel" styleClass="metric-value warning" text="0" />
+                                    </VBox>
+                                    <VBox styleClass="metric-card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                        <Label styleClass="metric-label" text="Low Durability" />
+                                        <Label fx:id="lowDurabilityLabel" styleClass="metric-value warning" text="0" />
+                                    </VBox>
+
+                                    <VBox styleClass="metric-card" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                                        <Label styleClass="metric-label" text="Consumables" />
+                                        <Label fx:id="consumableLabel" styleClass="metric-value" text="0" />
+                                    </VBox>
+                                    <VBox styleClass="metric-card" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                        <Label styleClass="metric-label" text="Weapons" />
+                                        <Label fx:id="weaponLabel" styleClass="metric-value" text="0" />
+                                    </VBox>
+
+                                    <VBox styleClass="metric-card" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="3">
+                                        <Label styleClass="metric-label" text="Toolboxes" />
+                                        <Label fx:id="toolboxLabel" styleClass="metric-value" text="0" />
+                                    </VBox>
+                                </GridPane>
+
+                                    <VBox spacing="8" styleClass="card-panel">
+                                    <Label styleClass="section-title" text="Item Type Distribution" />
+                                    <PieChart fx:id="itemTypeChart" labelsVisible="false" legendVisible="false" prefHeight="270" prefWidth="560" title="Items by Type" />
+                                    <FlowPane hgap="16" vgap="8">
+                                        <HBox alignment="CENTER_LEFT" spacing="6"><Circle radius="6" styleClass="legend-food" /><Label text="Food" /></HBox>
+                                        <HBox alignment="CENTER_LEFT" spacing="6"><Circle radius="6" styleClass="legend-drink" /><Label text="Drink" /></HBox>
+                                        <HBox alignment="CENTER_LEFT" spacing="6"><Circle radius="6" styleClass="legend-gun" /><Label text="Gun" /></HBox>
+                                        <HBox alignment="CENTER_LEFT" spacing="6"><Circle radius="6" styleClass="legend-bomb" /><Label text="Bomb" /></HBox>
+                                        <HBox alignment="CENTER_LEFT" spacing="6"><Circle radius="6" styleClass="legend-toolbox" /><Label text="Toolbox" /></HBox>
+                                    </FlowPane>
+                                </VBox>
+
+                                <VBox spacing="8" styleClass="card-panel">
+                                    <Label styleClass="section-title" text="Item Health Overview" />
+                                    <BarChart fx:id="healthChart" animated="false" legendVisible="false" prefHeight="240" title="Warehouse Health">
+                                        <xAxis>
+                                            <CategoryAxis label="Category" />
+                                        </xAxis>
+                                        <yAxis>
+                                            <NumberAxis label="Count" lowerBound="0" tickLabelGap="1" />
+                                        </yAxis>
+                                    </BarChart>
+                                </VBox>
+                            </VBox>
+                        </content>
+                    </TitledPane>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </right>
+</BorderPane>

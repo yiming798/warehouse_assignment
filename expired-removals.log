@@ -1,0 +1,14 @@
+2026-04-06 17:45:55 | name=mulk | type=Drink | weight=5.0 | expiration=2026-04-05
+2026-04-06 17:53:44 | name=mulk | type=Food | weight=5.0 | expiration=2026-04-05
+2026-04-06 18:02:19 | name=hotdog | type=Food | weight=20.0 | expiration=2026-04-04
+2026-04-06 18:11:34 | name=ice-cream | type=Food | weight=3.0 | expiration=2026-04-04
+2026-04-06 18:14:11 | name=ice-cream | type=Food | weight=3.0 | expiration=2026-04-04
+2026-04-07 10:05:45 | name=lamb | type=Food | weight=20.0 | expiration=2026-04-06
+2026-04-07 10:13:24 | name=lamb | type=Food | weight=20.0 | expiration=2026-04-06
+2026-04-07 11:09:49 | name=lamb | type=Food | weight=30.0 | expiration=2026-04-06
+2026-04-11 18:55:20 | name=Juicy | type=Drink | weight=200.0 | expiration=2026-04-07
+2026-04-24 08:50:53 | name=Bread | type=Food | weight=100.0 | expiration=2026-04-11
+2026-04-24 08:50:53 | name=Beef | type=Food | weight=80.0 | expiration=2026-04-20
+2026-04-24 08:50:53 | name=hamburger | type=Food | weight=30.0 | expiration=2026-04-11
+2026-04-24 08:50:53 | name=peach | type=Food | weight=5.0 | expiration=2026-04-17
+2026-04-27 17:14:02 | name=Coconut | type=Drink | weight=25.0 | expiration=2026-03-12
